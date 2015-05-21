@@ -13,6 +13,7 @@
         />
 
     <adapter
+        for="collective.contact.widget.interfaces.IContactContent"
         factory=".formatter.RICIntegerDataConverter"
         />
 
