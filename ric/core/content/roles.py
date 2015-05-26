@@ -37,7 +37,7 @@ class MembraneGroupRoleProvider(object):
         """
         persons = self._getAllPersons()
         for person in persons:
-            yield person.title, self._default_roles
+            yield person.userid, self._default_roles
 
     def _getAllPersons(self):
         catalog = api.portal.get_tool('portal_catalog')
