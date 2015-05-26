@@ -31,8 +31,10 @@ class ContactFormExtender(extensible.FormExtender):
             self.remove('activity')
             self.remove('IContactDetails.im_handle')
             self.remove('IContactDetails.country')
+            self.remove('IContactDetails.cell_phone')
+            self.remove('IContactDetails.fax')
             contactFields = self.form.groups[0].fields
-            contactFields['IContactDetails.email'].field.required = True
+            #contactFields['IContactDetails.email'].field.required = True
 
         elif self.form.portal_type == 'person':
             self.remove('gender')

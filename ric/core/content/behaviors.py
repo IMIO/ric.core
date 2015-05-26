@@ -78,15 +78,15 @@ class IRICOrganization(model.Schema):
         required=True
     )
 
-    servers = schema.TextLine(
-        title=_(u"Serveurs"),
-        required=True
-    )
+    #servers = schema.TextLine(
+    #    title=_(u"Serveurs"),
+    #    required=True
+    #)
 
-    softwares = schema.TextLine(
-        title=_(u"Logiciels"),
-        required=True
-    )
+    #softwares = schema.TextLine(
+    #    title=_(u"Logiciels"),
+    #    required=True
+    #)
 
     subscriptions = schema.List(
         title=_(u"Cotisations"),
