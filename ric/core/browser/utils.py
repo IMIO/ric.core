@@ -4,6 +4,7 @@ from Acquisition import aq_parent
 from AccessControl.unauthorized import Unauthorized
 from plone import api
 from Products.Five.browser import BrowserView
+from collective.contact.core.behaviors import ADDRESS_FIELDS
 
 
 class UtilsView(BrowserView):
@@ -18,8 +19,12 @@ class UtilsView(BrowserView):
         and return True if content is more than 85% completed
         """
         context = self.context
+        use_parent_address = getattr(context, 'use_parent_address', False)
         completedFields = 0
         for field in self.importantFields:
+            if use_parent_address and field in ADDRESS_FIELDS:
+                completedFields += 1
+                continue
             if getattr(context, field, None) is not None:
                 completedFields += 1
         completion = float(completedFields) / len(self.importantFields)
@@ -93,9 +98,9 @@ class PersonView(UtilsView):
                        'birthday',
                        'phone',
                        'cell_phone',
-                       'fax',
+                       #'fax',
                        'email',
-                       'website',
+                       #'website',
                        'number',
                        'street',
                        'zip_code',
