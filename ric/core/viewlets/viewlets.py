@@ -60,13 +60,21 @@ class ProfileViewlet(RICViewletBase):
         self.organizations = []
         self.isManager = False
         if self.viewletsToShowTomanager() == 'organization':
-            self.organizations = [self.context]
             self.isManager = True
-            return True
+            isCompleted = getMultiAdapter((self.context, self.request),
+                                          name="is_profile_completed")()
+            if not isCompleted:
+                self.organizations = [self.context]
+                return True
+            return False
         elif self.viewletsToShowTomanager() == 'person':
-            self.persons = [self.context]
             self.isManager = True
-            return True
+            isCompleted = getMultiAdapter((self.context, self.request),
+                                          name="is_profile_completed")()
+            if not isCompleted:
+                self.persons = [self.context]
+                return True
+            return False
         persons = getMultiAdapter((self.context, self.request),
                                   name="get_persons_for_user")()
         for person in persons:

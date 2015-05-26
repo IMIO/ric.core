@@ -67,7 +67,7 @@ class OrganizationView(UtilsView):
     """
     """
     importantFields = ['title',
-                       'description',
+                       #'description',
                        'organization_type',
                        'phone',
                        #'cell_phone',
