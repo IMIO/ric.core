@@ -41,6 +41,9 @@ class ContactFormExtender(extensible.FormExtender):
             self.remove('person_title')
             self.remove('photo')
             self.remove('IContactDetails.im_handle')
+            self.remove('IContactDetails.fax')
             self.remove('IContactDetails.country')
+            self.remove('IContactDetails.website')
+            self.form.fields['firstname'].field.required = True
             contactFields = self.form.groups[0].fields
             contactFields['IContactDetails.email'].field.required = True
