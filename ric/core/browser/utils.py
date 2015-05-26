@@ -70,8 +70,8 @@ class OrganizationView(UtilsView):
                        'description',
                        'organization_type',
                        'phone',
-                       'cell_phone',
-                       'fax',
+                       #'cell_phone',
+                       #'fax',
                        'email',
                        'website',
                        'number',
@@ -80,8 +80,9 @@ class OrganizationView(UtilsView):
                        'city',
                        'region',
                        'citizen',
-                       'servers',
-                       'softwares']
+                       #'servers',
+                       #'softwares',
+                       ]
 
 
 class PersonView(UtilsView):
