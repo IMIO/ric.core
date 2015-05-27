@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Protect from calling standard views on directory
+  [sgeulette]
 - Remove contact contents from plone searchable elements
   [sgeulette]
 - Refine search permissions

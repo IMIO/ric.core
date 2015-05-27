@@ -22,6 +22,38 @@
       template="templates/forbidden_search.pt"
       />
 
+  <browser:page
+      name="folder_tabular_view"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      name="folder_summary_view"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      name="folder_listing"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
+  <browser:page
+      name="folder_full_view"
+      for="collective.contact.core.content.directory.IDirectory"
+      class=".search.RICSearchFormView"
+      permission="zope2.View"
+      layer="..interfaces.IRICCoreLayer"
+      />
+
   <utility name="ric.search.contents"
            component=".vocabulary.ContentsVocabularyFactory" />
 
