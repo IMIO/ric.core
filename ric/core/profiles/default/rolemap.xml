@@ -12,6 +12,7 @@
     <permission name="RIC: Administer website" acquire="True">
       <role name="Site Administrator"/>
       <role name="Manager"/>
+      <role name="PloneboardManager"/>
     </permission>
     <permission name="RIC: Actual person owner" acquire="True">
       <role name="RICActualPersonOwner"/>
