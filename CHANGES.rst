@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Display cotisation viewlet for manager only if necessary
+  [sgeulette]
 - Protect from calling standard views on directory
   [sgeulette]
 - Remove contact contents from plone searchable elements

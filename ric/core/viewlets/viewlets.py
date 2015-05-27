@@ -25,28 +25,35 @@ class CotisationViewlet(RICViewletBase):
     def available(self):
         self.organizations = []
         self.isManager = False
-        if self.viewletsToShowTomanager() == 'organization':
-            self.organizations = [self.context]
-            self.isManager = True
-            return True
-        organizations = getMultiAdapter((self.context, self.request),
-                                        name="get_organizations_for_user")()
-        if not organizations:
-            return False
         catalog = api.portal.get_tool('portal_catalog')
-        for organization in organizations:
+        if self.viewletsToShowTomanager() == 'organization':
+            self.isManager = True
             persons = catalog.searchResults(portal_type="person",
-                                            path={'query': '/'.join(organization.getPhysicalPath()),
+                                            path={'query': '/'.join(self.context.getPhysicalPath()),
                                                   'depth': 1})
-            contactCotisation = False
             for person in persons:
-                personObj = person.getObject()
-                if 'contact_cotisation' in personObj.multimail:
-                    contactCotisation = True
-                    break
-            if not contactCotisation:
-                self.organizations.append(organization)
-        return bool(self.organizations)
+                if 'contact_cotisation' in person.getObject().multimail:
+                    return False
+            self.organizations = [self.context]
+            return True
+        else:
+            organizations = getMultiAdapter((self.context, self.request),
+                                            name="get_organizations_for_user")()
+            if not organizations:
+                return False
+            for organization in organizations:
+                persons = catalog.searchResults(portal_type="person",
+                                                path={'query': '/'.join(organization.getPhysicalPath()),
+                                                      'depth': 1})
+                contactCotisation = False
+                for person in persons:
+                    personObj = person.getObject()
+                    if 'contact_cotisation' in personObj.multimail:
+                        contactCotisation = True
+                        break
+                if not contactCotisation:
+                    self.organizations.append(organization)
+            return bool(self.organizations)
 
 
 class ProfileViewlet(RICViewletBase):
