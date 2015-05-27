@@ -16,6 +16,22 @@ def addUUIDOnPortal(portal):
         uuid_adapter.set(uuid)
 
 
+def changeSearchedTypes(site):
+    """
+        Change searched types
+    """
+    to_show = []
+    to_hide = ['directory', 'held_position', 'organization', 'person', 'position']
+    not_searched = list(site.portal_properties.site_properties.types_not_searched)
+    for typ in to_show:
+        if typ in not_searched:
+            not_searched.remove(typ)
+    for typ in to_hide:
+        if typ not in not_searched:
+            not_searched.append(typ)
+    site.portal_properties.site_properties.manage_changeProperties(types_not_searched=not_searched)
+
+
 def installCore(context):
     if context.readDataFile('ric.core-default.txt') is None:
         return
@@ -30,3 +46,4 @@ def installCore(context):
 
     portal = context.getSite()
     addUUIDOnPortal(portal)
+    #changeSearchedTypes(portal)  # adaptation de sge_recent à la place
