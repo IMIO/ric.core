@@ -44,4 +44,5 @@ class MembraneGroupRoleProvider(object):
         persons = catalog.searchResults(portal_type="person",
                                         path={'query': '/'.join(self.context.getPhysicalPath()),
                                               'depth': 1})
-        return [person.getObject() for person in persons]
+        # Cannot use person.getObject() because restrictedTraverse is called and call again this method: infinite loop
+        return [catalog.unrestrictedTraverse(person.getPath()) for person in persons]
