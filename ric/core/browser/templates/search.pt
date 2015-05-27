@@ -10,31 +10,51 @@
         <div id="ric-search-warning"
              tal:define="canSearch view/canSearch;
                          results view/getResults | nothing"
-             tal:condition="python: not canSearch and results is not None">
+             tal:condition="python: canSearch < 3 and results is not None">
 
              <h3 i18n:translate="">Vous ne pouvez pas effectuer de recherche</h3>
-             <p tal:repeat="person view/personsToComplete">
-             <span i18n:translate="">Vous devez compl&eacute;ter votre description (<span i18n:name="title" tal:replace="person/title" />) pour pouvoir effectuer une recherche.</span>
-                 <br />
-                 <a href=""
-                    tal:attributes="href string:${person/absolute_url}/edit"
-                    i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
-             </p>
-
-             <p tal:repeat="organization view/organizationsToComplete">
-                 <span i18n:translate="">Vous devez compl&eacute;ter la description de votre organisation (<span i18n:name="title" tal:replace="organization/title" />) pour pouvoir effectuer une recherche.</span>
-                 <br />
-                 <a href=""
-                    tal:attributes="href string:${organization/absolute_url}/edit"
-                    i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
-             </p>
-             
+             <span tal:condition="python: canSearch == 1">Vous n'êtes pas dans l'annuaire. Contactez l'administrateur du site.</span>
+             <tal condition="python: canSearch == 2">
+                <p tal:repeat="person view/personsToComplete">
+                <span i18n:translate="">Vous devez compl&eacute;ter les champs de "<span i18n:name="title" tal:replace="person/title" />" pour pouvoir effectuer une recherche.</span>
+                    <br />
+                    <a href=""
+                       tal:attributes="href string:${person/absolute_url}/edit"
+                       i18n:translate="">Cliquez ici pour compl&eacute;ter.</a>
+                </p>
+   
+                <p tal:repeat="organization view/organizationsToComplete">
+                    <span i18n:translate="">Vous devez compl&eacute;ter les champs de "<span i18n:name="title" tal:replace="organization/title" />" pour pouvoir effectuer une recherche.</span>
+                    <br />
+                    <a href=""
+                       tal:attributes="href string:${organization/absolute_url}/edit"
+                       i18n:translate="">Cliquez ici pour compl&eacute;ter.</a>
+                </p>
+                <tal:loop tal:repeat="person view/persons">
+                <p tal:condition="python: person not in view.personsToComplete">
+                <span i18n:translate="">Vous pouvez gérer la personne "<span i18n:name="title" tal:replace="person/title" />".</span>
+                    <br />
+                    <a href=""
+                       tal:attributes="href string:${person/absolute_url}"
+                       i18n:translate="">Cliquez ici pour consulter.</a>
+                </p>
+                </tal:loop>
+                <tal:loop tal:repeat="organization view/organizations">
+                <p tal:condition="python: organization not in view.organizationsToComplete">
+                <span i18n:translate="">Vous pouvez gérer l'organisation "<span i18n:name="title" tal:replace="organization/title" />".</span>
+                    <br />
+                    <a href=""
+                       tal:attributes="href string:${organization/absolute_url}"
+                       i18n:translate="">Cliquez ici pour consulter.</a>
+                </p>
+                </tal:loop>
+             </tal>
         </div>
 
         <div id="ric-search-results"
              tal:define="canSearch view/canSearch;
                          results view/getResults | nothing"
-             tal:condition="python: canSearch and results is not None">
+             tal:condition="python: canSearch == 3 and results is not None">
 
           <tal:if tal:condition="results">
 

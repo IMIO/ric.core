@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Refine search permissions
+  [sgeulette]
 - Limit search to admins and users having a profile that's completed
   [sgeulette]
 - Correction on local roles (infinite loop with getObject)

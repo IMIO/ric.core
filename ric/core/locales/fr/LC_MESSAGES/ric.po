@@ -29,13 +29,13 @@ msgstr ""
 msgid "Cette organisation ne comprend aucun contact de cotisation."
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:11
-msgid "Cliquez ici pour en ajouter un."
-msgstr ""
-
 #: ric/core/browser/templates/search.pt:19
 #: ric/core/viewlets/profile.pt:11
-msgid "Cliquez ici pour la compl&eacute;ter."
+msgid "Cliquez ici pour compl&eacute;ter."
+msgstr ""
+
+#: ric/core/viewlets/cotisation.pt:11
+msgid "Cliquez ici pour en ajouter un."
 msgstr ""
 
 #: ric/core/viewlets/email.pt:8
@@ -190,12 +190,8 @@ msgstr ""
 msgid "Votre organisation (${title}) ne comprend aucun contact de cotisation."
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:25
-msgid "Vous devez compl&eacute;ter la description de votre organisation (${title}) pour pouvoir effectuer une recherche."
-msgstr ""
-
 #: ric/core/browser/templates/search.pt:17
-msgid "Vous devez compl&eacute;ter votre description (${title}) pour pouvoir effectuer une recherche."
+msgid "Vous devez compl&eacute;ter les champs de "${title}" pour pouvoir effectuer une recherche."
 msgstr ""
 
 #: ric/core/browser/templates/search.pt:15
