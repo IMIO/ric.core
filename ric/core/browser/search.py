@@ -24,7 +24,7 @@ class RICSearchForm(form.Form):
     template = ViewPageTemplateFile('templates/search.pt')
     ignoreContext = True
     _data = None
-    canSearch = True
+    canSearch = False
     personsToComplete = []
     organizationsToComplete = []
 
@@ -35,24 +35,30 @@ class RICSearchForm(form.Form):
         if api.user.is_anonymous():
             self.request.response.redirect("%s/@@nosearch" % self.context.absolute_url())
             return ''
-        persons = getMultiAdapter((self.context, self.request),
-                                  name="get_persons_for_user")()
-        for person in persons:
-            isCompleted = getMultiAdapter((person, self.request),
-                                          name="is_profile_completed")()
-            if not isCompleted:
-                self.personsToComplete.append(person)
+        user = api.user.get_current()
+        if user.has_role('Manager') or api.user.has_permission('RIC: Administer website', user=user):
+            self.canSearch = True
+        else:
+            persons = getMultiAdapter((self.context, self.request),
+                                      name="get_persons_for_user")(userName=user.getUserName())
+            # if user has a profile
+            if persons:
+                for person in persons:
+                    isCompleted = getMultiAdapter((person, self.request),
+                                                  name="is_profile_completed")()
+                    if not isCompleted:
+                        self.personsToComplete.append(person)
 
-        organizations = getMultiAdapter((self.context, self.request),
-                                        name="get_organizations_for_user")()
-        for organization in organizations:
-            isCompleted = getMultiAdapter((organization, self.request),
-                                          name="is_profile_completed")()
-            if not isCompleted:
-                self.organizationsToComplete.append(organization)
+                organizations = getMultiAdapter((self.context, self.request),
+                                                name="get_organizations_for_user")()
+                for organization in organizations:
+                    isCompleted = getMultiAdapter((organization, self.request),
+                                                  name="is_profile_completed")()
+                    if not isCompleted:
+                        self.organizationsToComplete.append(organization)
 
-        if self.personsToComplete or self.organizationsToComplete:
-            self.canSearch = False
+                if not self.personsToComplete and not self.organizationsToComplete:
+                    self.canSearch = True
 
         super(RICSearchForm, self).update()
 
