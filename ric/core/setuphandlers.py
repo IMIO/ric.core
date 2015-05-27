@@ -46,4 +46,4 @@ def installCore(context):
 
     portal = context.getSite()
     addUUIDOnPortal(portal)
-    #changeSearchedTypes(portal)  # adaptation de sge_recent à la place
+    changeSearchedTypes(portal)

@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Remove contact contents from plone searchable elements
+  [sgeulette]
 - Refine search permissions
   [sgeulette]
 - Limit search to admins and users having a profile that's completed
