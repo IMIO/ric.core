@@ -98,5 +98,4 @@ class IRICOrganization(model.Schema):
     form.write_permission(subscriptions='RIC.Administrator')
     form.widget('subscriptions', DataGridField)
 
-
 alsoProvides(IRICOrganization, IFormFieldProvider)

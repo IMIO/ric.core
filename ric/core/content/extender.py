@@ -5,6 +5,7 @@ from zope.interface import implements
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from z3c.form.interfaces import IEditForm, IAddForm, IForm
+from AccessControl import getSecurityManager
 from plone.z3cform.fieldsets import extensible
 from plone.z3cform.fieldsets.interfaces import IFormExtender
 
@@ -33,6 +34,9 @@ class ContactFormExtender(extensible.FormExtender):
             self.remove('IContactDetails.country')
             self.remove('IContactDetails.cell_phone')
             self.remove('IContactDetails.fax')
+            sm = getSecurityManager()
+            if not sm.checkPermission('RIC: Administer website', self.context):
+                self.form.fields['IBasic.title'].mode = 'display'
             contactFields = self.form.groups[0].fields
             #contactFields['IContactDetails.email'].field.required = True
 
