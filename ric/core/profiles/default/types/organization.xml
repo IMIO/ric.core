@@ -2,8 +2,6 @@
 <object name="organization">
  <property name="allowed_content_types">
   <element value="person"/>
-  <element value="position"/>
-  <element value="organization"/>
  </property>
  <property name="behaviors" purge="False">
   <element value="ric.core.content.behaviors.IRICOrganization" />
