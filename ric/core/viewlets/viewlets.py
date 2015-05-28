@@ -106,7 +106,7 @@ class EmailViewlet(RICViewletBase):
     def available(self):
         self.persons = []
         persons = getMultiAdapter((self.context, self.request),
-                                  name="get_persons_for_user")()
+                                  name="get_persons_for_user")(states=[])
         if not persons:
             return False
         for person in persons:

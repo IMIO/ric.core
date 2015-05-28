@@ -30,14 +30,17 @@ class UtilsView(BrowserView):
         completion = float(completedFields) / len(self.importantFields)
         return completion > 0.85
 
-    def getPersonsForUser(self, userName=None):
+    def getPersonsForUser(self, userName=None, states=['active']):
         """
         Returns Person objects associated to logged in user (if any)
         """
         if userName is None:
             userName = api.user.get_current().getUserName()
         membrane = api.portal.get_tool('membrane_tool')
-        membraneInfos = membrane.unrestrictedSearchResults(getUserId=userName)
+        kw = {'getUserId': userName}
+        if states:
+            kw['review_state'] = states
+        membraneInfos = membrane.unrestrictedSearchResults(kw)
         persons_final = []
         if membraneInfos:
             try:
