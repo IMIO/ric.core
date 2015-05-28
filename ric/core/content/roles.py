@@ -41,4 +41,9 @@ class MembraneGroupRoleProvider(object):
                                         path={'query': '/'.join(self.context.getPhysicalPath()),
                                               'depth': 1})
         # Cannot use person.getObject() because restrictedTraverse is called and call again this method: infinite loop
-        return [catalog.unrestrictedTraverse(person.getPath()) for person in persons]
+        ret = []
+        for person in persons:
+            obj = catalog.unrestrictedTraverse(person.getPath())
+            if obj.userid:
+                ret.append(obj)
+        return ret
