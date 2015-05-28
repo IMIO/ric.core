@@ -14,11 +14,7 @@ class MembraneGroupRoleProvider(object):
     implements(ILocalRoleProvider)
     adapts(IMembraneGroup)
 
-    _default_roles = ('Contributor',
-                      'Reviewer',
-                      'Reader',
-                      'Editor',
-                      'RICActualOrganizationMember')
+    _default_roles = ('Contributor', 'Reader', 'Editor', 'RICActualOrganizationMember')
 
     def __init__(self, context):
         self.context = context
