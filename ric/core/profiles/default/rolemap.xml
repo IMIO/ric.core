@@ -2,6 +2,7 @@
 <rolemap>
   <roles>
     <role name="RICActualPersonOwner"/>
+    <role name="RICActualOrganizationMember"/>
   </roles>
   <permissions>
     <permission name="RIC: View warning viewlets" acquire="True">
