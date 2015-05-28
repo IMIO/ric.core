@@ -14,9 +14,9 @@ RICAdministrator = 'RIC: Administer website'
 setDefaultRoles(RICAdministrator, ('Site Administrator', 'Manager'))
 
 security.declarePublic('RICActualPersonOwner')
-RICAdministrator = 'RIC: Actual person owner'
-setDefaultRoles(RICAdministrator, ('RICActualPersonOwner', 'Manager', 'Site Administrator'))
+RICActualPersonOwner = 'RIC: Actual person owner'
+setDefaultRoles(RICActualPersonOwner, ('RICActualPersonOwner', 'Manager', 'Site Administrator'))
 
 security.declarePublic('RICActualOrganizationMember')
-RICAdministrator = 'RIC: Actual organization member'
-setDefaultRoles(RICAdministrator, ('RICActualOrganizationMember', 'Manager', 'Site Administrator'))
+RICActualOrganizationMember = 'RIC: Actual organization member'
+setDefaultRoles(RICActualOrganizationMember, ('RICActualOrganizationMember', 'Manager', 'Site Administrator'))
