@@ -9,6 +9,7 @@ from collective.z3cform.datagridfield import DataGridField, DictRow
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from z3c.form.browser.radio import RadioFieldWidget
+from z3c.form.browser.select import SelectFieldWidget
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -38,7 +39,25 @@ class MultimailTypes(object):
             return SimpleVocabulary.createTerm(types[token])
 
 
+def FunctionsList(context):
+    terms = []
+    for brain in context.portal_catalog(portal_type='directory', id='annuaire'):
+        for pos in brain.getObject().position_types:
+            terms.append(SimpleVocabulary.createTerm(pos['token'], pos['token'], pos['name']))
+    return SimpleVocabulary(terms)
+
+alsoProvides(FunctionsList, IContextSourceBinder)
+
+
 class IRICPerson(model.Schema):
+
+    functions = schema.List(
+        title=_(u"Fonctions"),
+        description=_(u"Vous pouvez sélectionner plusieurs fonctions en appuyant sur la touche CTRL"),
+        required=True,
+        value_type=schema.Choice(source=FunctionsList),
+    )
+    form.widget('functions', SelectFieldWidget, multiple='multiple', size=3)
 
     invalidmail = schema.Bool(title=_(u"E-mail invalide"),
                               required=True)
@@ -51,6 +70,7 @@ class IRICPerson(model.Schema):
                             required=False,
                             value_type=schema.Choice(source=MultimailTypes()),
                             )
+    form.widget('multimail', SelectFieldWidget, multiple='multiple', size=2)
 
     userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
                              required=False)

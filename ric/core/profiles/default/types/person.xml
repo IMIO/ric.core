@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <object name="person">
+ <property name="allowed_content_types">
+ </property>
+
  <property name="behaviors" purge="False">
   <element value="ric.core.content.behaviors.IRICPerson" />
  </property>
