@@ -31,10 +31,13 @@ def import_organization(self, dochange=''):
         if not line:
             continue
         (orga, prov, pop) = line.split(';')
-        gen_id = generate_password(length=20, upper=0, special=0, readable=False)
-        out.append("Will create orga: '%s' with id '%s'" % (orga, gen_id))
-        if real:
-            annuaire.invokeFactory(id=gen_id, title=orga, province=prov, citizen=int(pop))
-            obj = annuaire[gen_id]
-            obj.reindexObject()
+        for typ in (u'ac', u'cpas'):
+            gen_id = generate_password(length=20, upper=0, special=0, readable=False)
+            out.append("Will create orga: '%s %s' with id '%s'" % (typ, orga.decode('utf8'), gen_id))
+            if real:
+                annuaire.invokeFactory('organization', id=gen_id, title=orga.decode('utf8'),
+                                       province=prov.decode('utf8'), citizen=int(pop), organization_type=typ,
+                                       use_parent_address=False)
+                obj = annuaire[gen_id]
+                obj.reindexObject()
     return '\n'.join(out)
