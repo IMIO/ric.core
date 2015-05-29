@@ -6,4 +6,5 @@
  <property name="behaviors" purge="False">
   <element value="ric.core.content.behaviors.IRICOrganization" />
  </property>
+ <property name="klass">ric.core.content.content.RICOrganization</property>
 </object>
