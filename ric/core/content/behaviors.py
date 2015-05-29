@@ -93,9 +93,10 @@ class ICotisationRow(model.Schema):
 
 class IRICOrganization(model.Schema):
 
-    citizen = schema.TextLine(
+    citizen = schema.Int(
         title=_(u"Nombre d'habitants"),
-        required=True
+        required=True,
+        min=1
     )
 
     #servers = schema.TextLine(
