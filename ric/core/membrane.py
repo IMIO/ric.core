@@ -11,4 +11,6 @@ class RICPersonMembraneUserAdapter(PersonMembraneUserAdapter):
                 self.context.userid = self.context.userid.encode('utf-8')
             return self.context.userid
         else:
+            # return nothing to not list user in plone
+            return ''
             return super(RICPersonMembraneUserAdapter, self).getUserName()
