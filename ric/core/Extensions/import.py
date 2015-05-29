@@ -35,4 +35,6 @@ def import_organization(self, dochange=''):
         out.append("Will create orga: '%s' with id '%s'" % (orga, gen_id))
         if real:
             annuaire.invokeFactory(id=gen_id, title=orga, province=prov, citizen=int(pop))
+            obj = annuaire[gen_id]
+            obj.reindexObject()
     return '\n'.join(out)
