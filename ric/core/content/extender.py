@@ -34,6 +34,7 @@ class ContactFormExtender(extensible.FormExtender):
             self.remove('IContactDetails.country')
             self.remove('IContactDetails.cell_phone')
             self.remove('IContactDetails.fax')
+            self.remove('IContactDetails.region')
             sm = getSecurityManager()
             if not sm.checkPermission('RIC: Administer website', self.context):
                 self.form.fields['IBasic.title'].mode = 'display'
@@ -47,6 +48,7 @@ class ContactFormExtender(extensible.FormExtender):
             self.remove('IContactDetails.im_handle')
             self.remove('IContactDetails.fax')
             self.remove('IContactDetails.country')
+            self.remove('IContactDetails.region')
             self.remove('IContactDetails.website')
             self.form.fields['firstname'].field.required = True
             contactFields = self.form.groups[0].fields
