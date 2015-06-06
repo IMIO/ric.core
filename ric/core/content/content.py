@@ -11,7 +11,6 @@ class RICOrganization(Organization):
         if self.organization_type:
             factory = getUtility(IVocabularyFactory, 'OrganizationTypesOrLevels')
             voc = factory(self)
-            voc.getTerm(self.organization_type).title
             return "%s %s" % (voc.getTerm(self.organization_type).title, self.title)
         else:
             return self.title
