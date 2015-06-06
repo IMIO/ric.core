@@ -37,6 +37,7 @@ setup(name='ric.core',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'awesome-slugify',
           'collective.contact.core',
           'collective.contact.membrane',
           'collective.excelexport',
