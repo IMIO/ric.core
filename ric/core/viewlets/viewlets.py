@@ -32,7 +32,7 @@ class CotisationViewlet(RICViewletBase):
                                             path={'query': '/'.join(self.context.getPhysicalPath()),
                                                   'depth': 1})
             for person in persons:
-                if 'contact_cotisation' in person.getObject().multimail:
+                if person.getObject().multimail and 'contact_cotisation' in person.getObject().multimail:
                     return False
             self.organizations = [self.context]
             return True
