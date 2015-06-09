@@ -2,6 +2,7 @@
 #utilities
 
 from slugify import slugify, Slugify
+from Products.CMFPlone.utils import safe_unicode
 from Products.CMFCore.utils import getToolByName
 from Products.CPUtils.Extensions.utils import check_zope_admin
 from imio.helpers.security import generate_password
@@ -52,6 +53,7 @@ def import_person(self, dochange=''):
     real = False
     if dochange not in ('', '0', 'False', 'false'):
         real = True
+    subs = {}
 
     portal = getToolByName(self, "portal_url").getPortalObject()
     if 'person_list' not in portal.objectIds():
@@ -80,4 +82,32 @@ def import_person(self, dochange=''):
                                email=email, userid=userid, invalidmail=False)
             obj = orga[gen_id]
             obj.reindexObject()
+        if orga.id not in subs:
+            subs[orga.id] = {}
+        groups = eval(groupe)
+        if 'cotisants2012-2013' in groups:
+            subs[orga.id][2012] = True
+        if 'cotisants2013-2014' in groups:
+            subs[orga.id][2013] = True
+        if 'cotisants2014-2015' in groups:
+            subs[orga.id][2014] = True
+
+    tots = {2012: 0, 2013: 0, 2014: 0}
+    for gen_id in subs:
+        brains = pc(portal_type='organization', id=gen_id)
+        if len(brains) != 1:
+            out.append('Cannot find organization with id %s' % gen_id.encode('utf8'))
+            continue
+        brain = brains[0]
+        res = []
+        for year in sorted(subs[gen_id].keys()):
+            res.append({'payment': True, 'year': year})
+            tots[year] += 1
+        if not res: continue
+        out.append("For orga %s, subscriptions=%s" % (brain.Title.encode('utf8'), res))
+        if real:
+            brain.getObject().subscriptions = res
+    out.append('')
+    for year in sorted(tots.keys()):
+        out.append("Year %d: %d subscriptions" % (year, tots[year]))
     return '\n'.join(out)
