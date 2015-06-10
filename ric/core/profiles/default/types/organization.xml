@@ -7,4 +7,24 @@
   <element value="ric.core.content.behaviors.IRICOrganization" />
  </property>
  <property name="klass">ric.core.content.content.RICOrganization</property>
+ <property name="model_source">&lt;?xml version='1.0' encoding='utf8'?&gt;
+  &lt;model xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns="http://namespaces.plone.org/supermodel/schema"&gt;
+    &lt;schema based-on="collective.contact.core.content.organization.IOrganization"&gt;
+      &lt;fieldset name="contact_details" label="Coordonnées"/&gt;
+      &lt;fieldset name="address" label="Adresse"&gt;
+        &lt;field name="province" type="zope.schema.Choice" form:after="IContactDetails.city" security:write-permission="RIC.Administrator"&gt;
+          &lt;description/&gt;
+          &lt;required&gt;False&lt;/required&gt;
+          &lt;title&gt;Province&lt;/title&gt;
+          &lt;values&gt;
+            &lt;element&gt;Brabant Wallon&lt;/element&gt;
+            &lt;element&gt;Hainaut&lt;/element&gt;
+            &lt;element&gt;Liège&lt;/element&gt;
+            &lt;element&gt;Luxembourg&lt;/element&gt;
+            &lt;element&gt;Namur&lt;/element&gt;
+          &lt;/values&gt;
+        &lt;/field&gt;
+      &lt;/fieldset&gt;
+    &lt;/schema&gt;
+  &lt;/model&gt;</property>
 </object>
