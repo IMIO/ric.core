@@ -38,6 +38,7 @@ class ContactFormExtender(extensible.FormExtender):
             sm = getSecurityManager()
             if not sm.checkPermission('RIC: Administer website', self.context):
                 self.form.fields['IBasic.title'].mode = 'display'
+                self.form.fields['organization_type'].mode = 'display'
             contactFields = self.form.groups[0].fields
             #contactFields['IContactDetails.email'].field.required = True
 
