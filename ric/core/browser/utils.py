@@ -98,7 +98,7 @@ class PersonView(UtilsView):
     """
     importantFields = ['lastname',
                        'firstname',
-                       'birthday',
+                       #'birthday',
                        'phone',
                        'cell_phone',
                        #'fax',
