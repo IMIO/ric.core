@@ -75,8 +75,9 @@ def import_person(self, dochange=''):
             out.append("Find multiple organization '%s'" % ', '.join([brain.Title for brain in brains]))
             continue
         orga = brains[0].getObject()
-        gen_id = slugify('%s %s' % (nom, prenom), to_lower=True)
-        out.append("Will create person: '%s %s' with id '%s'" % (nom, prenom, gen_id.encode('utf8')))
+        gen_id = slugify('%s %s' % (nom, prenom), to_lower=True).encode('utf8')
+        gen_id = generate_password(length=10, upper=0, special=0, readable=False)
+        out.append("Will create person: '%s %s' with id '%s'" % (nom, prenom, gen_id))
         if real:
             orga.invokeFactory('person', id=gen_id, firstname=prenom.decode('utf8'), lastname=nom.decode('utf8'),
                                email=email, userid=userid, invalidmail=False)
