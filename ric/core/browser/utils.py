@@ -101,11 +101,8 @@ class PersonView(UtilsView):
                        #'birthday',
                        'phone',
                        'cell_phone',
-                       #'fax',
                        'email',
-                       #'website',
                        'number',
                        'street',
                        'zip_code',
-                       'city',
-                       'region']
+                       'city']
