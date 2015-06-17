@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Redefine Title for organization and person
+  [sgeulette]
 - Import method for organization and person
   [sgeulette]
 - Add a simple functions field (history not needed) in place of held position

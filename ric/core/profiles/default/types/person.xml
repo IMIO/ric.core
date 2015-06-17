@@ -3,6 +3,7 @@
  <property name="allowed_content_types">
  </property>
 
+ <property name="klass">ric.core.content.content.RICPerson</property>
  <property name="behaviors" purge="False">
   <element value="ric.core.content.behaviors.IRICPerson" />
  </property>
