@@ -90,7 +90,7 @@ class RICCorePloneWithPackageLayer(PloneWithPackageLayer, MembraneProfilesLayer)
             servers='Linux',
             softwares='Firefox',
             description='Affinitic description',
-            organization_type='Affinitic type',
+            organization_type='asbl',
             phone='071123456',
             cell_phone='0488123456',
             fax='321123456',
