@@ -132,7 +132,7 @@ class SendMail(grok.View):
 
         for field in fields:
             for person in persons:
-                if field in person.multimail:
+                if not person.multimail or field in person.multimail:
                     persons_by_fields.append(person.email)
 
         return list(set(persons_by_fields))
