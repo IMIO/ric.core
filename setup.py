@@ -38,6 +38,7 @@ setup(name='ric.core',
       install_requires=[
           'setuptools',
           'awesome-slugify',
+          'collective.ckeditor>=4.8.2',
           'collective.contact.core',
           'collective.contact.membrane',
           'collective.excelexport',

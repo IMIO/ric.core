@@ -17,6 +17,17 @@
   <include package=".mail" />
   <include package=".viewlets" />
 
+  <!-- ckeditor 4.8.2 adapters -->
+    <adapter
+        for="Products.Ploneboard.browser.interfaces.IConversationView"
+        factory="collective.ckeditor.browser.ckeditorview.ATWidgetSettings"
+        />
+
+    <adapter
+        for="Products.Ploneboard.browser.interfaces.ICommentView"
+        factory="collective.ckeditor.browser.ckeditorview.ATWidgetSettings"
+        />
+
   <genericsetup:registerProfile
       name="default"
       title="ric.core"
