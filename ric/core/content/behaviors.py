@@ -52,27 +52,27 @@ alsoProvides(FunctionsList, IContextSourceBinder)
 class IRICPerson(model.Schema):
 
     functions = schema.List(
-        title=_(u"Fonctions"),
-        description=_(u"Vous pouvez sélectionner plusieurs fonctions en appuyant sur la touche CTRL"),
+        title=_(u"Functions"),
+        description=_(u"You can select multiple entries by pushing CTRL key"),
         required=True,
         value_type=schema.Choice(source=FunctionsList),
     )
     form.widget('functions', SelectFieldWidget, multiple='multiple', size=3)
 
-    invalidmail = schema.Bool(title=_(u"E-mail invalide"),
+    invalidmail = schema.Bool(title=_(u"Invalid e-mail"),
                               required=True)
 
     form.read_permission(invalidmail='RIC.ActualPersonOwner')
     form.write_permission(invalidmail='RIC.Administrator')
     form.widget('invalidmail', RadioFieldWidget)
 
-    multimail = schema.List(title=_(u"Envoi mail"),
+    multimail = schema.List(title=_(u"Email send"),
                             required=False,
                             value_type=schema.Choice(source=MultimailTypes()),
                             )
     form.widget('multimail', SelectFieldWidget, multiple='multiple', size=2)
 
-    userid = schema.TextLine(title=_(u"Identifiant de l'utilisateur"),
+    userid = schema.TextLine(title=_(u"Userid"),
                              required=False)
 
     form.read_permission(userid='RIC.Administrator')
@@ -84,17 +84,17 @@ alsoProvides(IRICPerson, IFormFieldProvider)
 
 class ICotisationRow(model.Schema):
 
-    year = schema.Int(title=_(u"Année"),
+    year = schema.Int(title=_(u"Year"),
                       required=True)
 
-    payment = schema.Bool(title=_(u"Versement"),
+    payment = schema.Bool(title=_(u"Payment"),
                           required=True)
 
 
 class IRICOrganization(model.Schema):
 
     citizen = schema.Int(
-        title=_(u"Nombre d'habitants"),
+        title=_(u"Inhabitant number"),
         required=True,
         min=1
     )
@@ -111,7 +111,7 @@ class IRICOrganization(model.Schema):
 
     subscriptions = schema.List(
         title=_(u"Cotisations"),
-        value_type=DictRow(title=_(u"Cotisation"),
+        value_type=DictRow(title=_(u"Subscription"),
                            schema=ICotisationRow),
         required=False,
     )

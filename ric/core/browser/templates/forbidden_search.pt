@@ -7,11 +7,11 @@
     <div metal:fill-slot="content-core">
 
       <div id="ric-search-error">
-        <span i18n:translate="">Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire.</span>
+        <span i18n:translate="">You must have an account and connected to do a search.</span>
         <br />
         <a href=""
            tal:attributes="href string:${context/absolute_url}/login"
-           i18n:translate="">Cliquez ici pour vous connecter.</a>
+           i18n:translate="">Click here to connect</a>
       </div>
 
     </div>

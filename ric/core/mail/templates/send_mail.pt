@@ -14,9 +14,9 @@
 
   <form method="post">
     <fieldset>
-      <legend i18n:translate="non_cotisants_annee_specifiee">Non-cotisants une année spécifiée</legend>
+      <legend i18n:translate="non_cotisants_annee_specifiee">Non-cotisants une annee specifiee</legend>
       <input type="hidden" name="filter" value="non_contributor" />
-      <span i18n:translate="Annee">Ann&eacute;e</span>: <input type="text" name="option" value="" tal:attributes="value view/get_current_year" />
+      <span i18n:translate="Year">Year</span>: <input type="text" name="option" value="" tal:attributes="value view/get_current_year" />
       <br />
 
       <div class="edit_mail_template">
@@ -31,7 +31,7 @@
 
   <form method="post">
     <fieldset>
-      <legend i18n:translate="Envoi_tous_membres_organisation">Envoi à tous les membres d'une organisation</legend>
+      <legend i18n:translate="Envoi_tous_membres_organisation">Envoi a tous les membres d'une organisation</legend>
       <input type="hidden" name="filter" value="organization_members" />
       <span i18n:translate="Organisation">Organisation</span>:
       <select name="option">
@@ -55,7 +55,7 @@
 
   <form method="post">
     <fieldset>
-      <legend i18n:translate="Envoi_tous_membres_non_connectes_nombre_jours">Envoi à tous les membres non connectés depuis un nombre de jours spécifié</legend>
+      <legend i18n:translate="Envoi_tous_membres_non_connectes_nombre_jours">Envoi a tous les membres non connectes depuis un nombre de jours specifie</legend>
       <input type="hidden" name="filter" value="non_connected_members" />
       <span i18n:translate="Jours">Jours</span>: <input type="text" name="option" value="0" />
       <br />
@@ -72,7 +72,7 @@
 
   <form method="post">
     <fieldset>
-      <legend i18n:translate="Envoi_selon_valeur_champ_envoi_mail">Envoi selon la valeur du champ « envoi mail » d’une personne</legend>
+      <legend i18n:translate="Envoi_selon_valeur_champ_envoi_mail">Envoi selon la valeur du champ &quot;envoi mail&quot; d'une personne</legend>
       <input type="hidden" name="filter" value="send_mail_field" />
       <tal:for tal:repeat="field view/get_multimail_fields">
         <input type="checkbox" name="option:list" value="" tal:attributes="value python:field[0]" /> <span tal:content="python:field[1]"></span><br />

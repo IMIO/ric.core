@@ -20,7 +20,7 @@ class RICNoSearchFormView(BrowserView):
 class RICSearchForm(form.Form):
 
     fields = field.Fields(IRICSearch)
-    label = _(u"Recherche dans l'annuaire du RIC")
+    label = _(u"Search in RIC directory")
     template = ViewPageTemplateFile('templates/search.pt')
     ignoreContext = True
     _data = None
@@ -74,7 +74,7 @@ class RICSearchForm(form.Form):
 
         super(RICSearchForm, self).update()
 
-    @button.buttonAndHandler(_(u'Rechercher'))
+    @button.buttonAndHandler(_(u'Search'))
     def handleSave(self, action):
         data, errors = self.extractData()
         if errors:

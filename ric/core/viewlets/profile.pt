@@ -5,26 +5,26 @@
      <tal:bcl tal:repeat="person view/persons">
         <div>
              <span i18n:translate=""
-                   tal:condition="view/isManager">La description de ce profil comprend plus de 15% de donn&eacute;es non remplies.</span>
+                   tal:condition="view/isManager">This person entry contains more than 15% of incomplete data.</span>
              <span i18n:translate=""
-                   tal:condition="not: view/isManager">Votre description (<span i18n:name="title" tal:replace="person/Title" />) comprend plus de 15% de donn&eacute;es non remplies.</span>
+                   tal:condition="not: view/isManager">Your person entry (<span i18n:name="title" tal:replace="person/Title" />) contains more than 15% of incomplete data.</span>
              <a href=""
                 class="person-link"
                 tal:attributes="href string:${person/absolute_url}/edit"
-                i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+                i18n:translate="">Click here to edit</a>
         </div>
      </tal:bcl>
 
      <tal:bcl tal:repeat="organization view/organizations">
         <div>
              <span i18n:translate=""
-                   tal:condition="view/isManager">La description de cette organisation comprend plus de 15% de donn&eacute;es non remplies.</span>
+                   tal:condition="view/isManager">This organization entry contains more than 15% of incomplete data.</span>
              <span i18n:translate=""
-                   tal:condition="not: view/isManager">La description de votre organisation (<span i18n:name="title" tal:replace="organization/Title" />) comprend plus de 15% de donn&eacute;es non remplies.</span>
+                   tal:condition="not: view/isManager">Your organization entry (<span i18n:name="title" tal:replace="organization/Title" />) contains more than 15% of incomplete data.</span>
              <a href=""
                 class="organization-link"
                 tal:attributes="href string:${organization/absolute_url}/edit"
-                i18n:translate="">Cliquez ici pour la compl&eacute;ter.</a>
+                i18n:translate="">Click here to edit</a>
         </div>
      </tal:bcl>
 

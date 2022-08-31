@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
-"POT-Creation-Date: 2014-09-08 13:34+0000\n"
+"POT-Creation-Date: 2022-08-31 10:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,210 +16,219 @@ msgstr ""
 "Language: \n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-#. Default: "Ann&eacute;e"
-#: ric/core/mail/templates/send_mail.pt:19
-msgid "Annee"
+#: ../mail/send_mail.py:70
+msgid "A problem occured when sending the email"
 msgstr ""
 
-#: ric/core/content/behaviors.py:67
-msgid "Année"
+#: ../browser/templates/forbidden_search.pt:12
+msgid "Click here to connect"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:7
-msgid "Cette organisation ne comprend aucun contact de cotisation."
+#: ../browser/templates/search.pt:21
+#: ../viewlets/email.pt:8
+#: ../viewlets/profile.pt:11
+msgid "Click here to edit"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:11
-msgid "Cliquez ici pour en ajouter un."
+#: ../browser/templates/search.pt:37
+#: ../viewlets/cotisation.pt:11
+msgid "Click here to view"
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:19
-#: ric/core/viewlets/profile.pt:11
-msgid "Cliquez ici pour compl&eacute;ter."
-msgstr ""
-
-#: ric/core/viewlets/email.pt:8
-msgid "Cliquez ici pour la modifier."
-msgstr ""
-
-#: ric/core/browser/templates/forbidden_search.pt:12
-msgid "Cliquez ici pour vous connecter."
-msgstr ""
-
-#: ric/core/content/behaviors.py:93
-msgid "Cotisation"
-msgstr ""
-
-#: ric/core/content/behaviors.py:92
+#: ../content/behaviors.py:113
 msgid "Cotisations"
 msgstr ""
 
-#: ric/core/mail/substitution.py:12
+#: ../mail/substitution.py:12
 msgid "Destinataires"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:31
-msgid "E-mail envoyé à"
+#: ../content/behaviors.py:69
+msgid "Email send"
 msgstr ""
 
-#: ric/core/content/behaviors.py:43
-msgid "E-mail invalide"
+#: ../mail/send_mail.py:31
+msgid "Email sent to"
 msgstr ""
 
-#: ric/core/content/behaviors.py:50
-msgid "Envoi mail"
-msgstr ""
-
-#. Default: "Envoi selon la valeur du champ « envoi mail » d’une personne"
-#: ric/core/mail/templates/send_mail.pt:75
+#. Default: "Envoi selon la valeur du champ \"envoi mail\" d'une personne"
+#: ../mail/templates/send_mail.pt:75
 msgid "Envoi_selon_valeur_champ_envoi_mail"
 msgstr ""
 
-#. Default: "Envoi à tous les membres non connectés depuis un nombre de jours spécifié"
-#: ric/core/mail/templates/send_mail.pt:58
+#. Default: "Envoi a tous les membres non connectes depuis un nombre de jours specifie"
+#: ../mail/templates/send_mail.pt:58
 msgid "Envoi_tous_membres_non_connectes_nombre_jours"
 msgstr ""
 
-#. Default: "Envoi à tous les membres d'une organisation"
-#: ric/core/mail/templates/send_mail.pt:34
+#. Default: "Envoi a tous les membres d'une organisation"
+#: ../mail/templates/send_mail.pt:34
 msgid "Envoi_tous_membres_organisation"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:28
+#: ../mail/templates/send_mail.pt:28
 msgid "Envoyer"
 msgstr ""
 
-#: ric/core/profiles/default/actions.xml
+#: ../profiles/default/actions.xml
 msgid "Envoyer des e-mails"
 msgstr ""
 
-#: ric/core/profiles/default/actions.xml
+#: ../profiles/default/actions.xml
 msgid "Exporter les organisations et personnes"
 msgstr ""
 
-#: ric/core/content/behaviors.py:55
-msgid "Identifiant de l'utilisateur"
+#: ../content/behaviors.py:55
+msgid "Functions"
 msgstr ""
 
-#: ric/core/browser/templates/forbidden_search.pt:10
-msgid "Il faut &ecirc;tre membre du RIC et connect&eacute; au site pour pouvoir effectuer des recherches dans l'annuaire."
+#: ../content/behaviors.py:97
+msgid "Inhabitant number"
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:56
-msgid "Il n'y a pas de r&eacute;sultat correspondant &agrave; votre recherche ..."
+#: ../configure.zcml:38
+msgid "Installs RIC core"
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:41
-msgid "Il y a ${number} r&eacute;sultat(s) correspondant &agrave; votre recherche (20 maximum) :"
+#: ../content/behaviors.py:62
+msgid "Invalid e-mail"
 msgstr ""
 
-#: ric/core/mail/templates/send_mail.pt:60
+#: ../mail/templates/send_mail.pt:60
 msgid "Jours"
 msgstr ""
 
-#: ric/core/viewlets/email.pt:7
-msgid "L'adresse email renseign&eacute;e dans votre description (${title}) n'est pas valide."
-msgstr ""
-
-#: ric/core/viewlets/profile.pt:7
-msgid "La description de ce profil comprend plus de 15% de donn&eacute;es non remplies."
-msgstr ""
-
-#: ric/core/viewlets/profile.pt:20
-msgid "La description de cette organisation comprend plus de 15% de donn&eacute;es non remplies."
-msgstr ""
-
-#: ric/core/viewlets/profile.pt:23
-msgid "La description de votre organisation (${title}) comprend plus de 15% de donn&eacute;es non remplies."
-msgstr ""
-
-#: ric/core/content/behaviors.py:87
-msgid "Logiciels"
-msgstr ""
-
-#: ric/core/browser/templates/organization.pt:73
+#: ../browser/templates/organization.pt:73
 msgid "Membres de cette organisation"
 msgstr ""
 
-#: ric/core/browser/interfaces.py:14
-msgid "Nom à rechercher"
-msgstr ""
-
-#: ric/core/content/behaviors.py:77
-msgid "Nombre d'habitants"
-msgstr ""
-
-#: ric/core/mail/templates/send_mail.pt:36
+#: ../mail/templates/send_mail.pt:36
 msgid "Organisation"
 msgstr ""
 
-#: ric/core/browser/search.py:23
-msgid "Recherche dans l'annuaire du RIC"
+#: ../content/behaviors.py:90
+msgid "Payment"
 msgstr ""
 
-#: ric/core/browser/interfaces.py:11
-#: ric/core/browser/search.py:59
-msgid "Rechercher"
+#: ../browser/interfaces.py:11
+#: ../browser/search.py:77
+msgid "Search"
 msgstr ""
 
-#: ric/core/content/behaviors.py:82
-msgid "Serveurs"
+#: ../browser/search.py:23
+msgid "Search in RIC directory"
 msgstr ""
 
-#: ric/core/mail/send_mail.py:70
-msgid "Un problème est survenu lors de l'envoi de l'e-mail"
+#: ../browser/interfaces.py:14
+msgid "String to search"
 msgstr ""
 
-#: ric/core/browser/vocabulary.py:12
+#: ../content/behaviors.py:114
+msgid "Subscription"
+msgstr ""
+
+#: ../viewlets/email.pt:7
+msgid "The email address found in your person entry (${title}) is not valid."
+msgstr ""
+
+#: ../browser/templates/search.pt:76
+msgid "There is no result corresponding to your search..."
+msgstr ""
+
+#: ../browser/templates/search.pt:61
+msgid "There is(are) ${number} result(s) corresponding to your search (max 20) :"
+msgstr ""
+
+#: ../viewlets/cotisation.pt:7
+msgid "This organization doesn't contain a subscription contact."
+msgstr ""
+
+#: ../viewlets/profile.pt:20
+msgid "This organization entry contains more than 15% of incomplete data."
+msgstr ""
+
+#: ../viewlets/profile.pt:7
+msgid "This person entry contains more than 15% of incomplete data."
+msgstr ""
+
+#: ../browser/vocabulary.py:12
 msgid "Une organisation"
 msgstr ""
 
-#: ric/core/browser/vocabulary.py:13
+#: ../browser/vocabulary.py:13
 msgid "Une personne"
 msgstr ""
 
-#: ric/core/content/behaviors.py:70
-msgid "Versement"
+#: ../content/behaviors.py:75
+msgid "Userid"
 msgstr ""
 
-#: ric/core/viewlets/profile.pt:10
-msgid "Votre description (${title}) comprend plus de 15% de donn&eacute;es non remplies."
+#: ../content/behaviors.py:87
+#: ../mail/templates/send_mail.pt:19
+msgid "Year"
 msgstr ""
 
-#: ric/core/viewlets/cotisation.pt:10
-msgid "Votre organisation (${title}) ne comprend aucun contact de cotisation."
+#: ../content/behaviors.py:56
+msgid "You can select multiple entries by pushing CTRL key"
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:17
-msgid "Vous devez compl&eacute;ter les champs de "${title}" pour pouvoir effectuer une recherche."
+#: ../browser/templates/search.pt:44
+msgid "You can view the organization &quot;${title}&quot;."
 msgstr ""
 
-#: ric/core/browser/templates/search.pt:15
-msgid "Vous ne pouvez pas effectuer de recherche"
+#: ../browser/templates/search.pt:35
+msgid "You can view the person &quot;${title}&quot;."
+msgstr ""
+
+#: ../browser/templates/search.pt:15
+msgid "You cannot do a search"
+msgstr ""
+
+#: ../browser/templates/search.pt:19
+msgid "You must fill the fields of &quot;${title}&quot; to do a search."
+msgstr ""
+
+#: ../browser/templates/forbidden_search.pt:10
+msgid "You must have an account and connected to do a search."
+msgstr ""
+
+#: ../viewlets/cotisation.pt:10
+msgid "Your organization (${title}) doesn't contain a subscription contact."
+msgstr ""
+
+#: ../viewlets/profile.pt:23
+msgid "Your organization entry (${title}) contains more than 15% of incomplete data."
+msgstr ""
+
+#: ../viewlets/profile.pt:10
+msgid "Your person entry (${title}) contains more than 15% of incomplete data."
 msgstr ""
 
 #. Default: "Contact cotisation"
-#: ric/core/profiles/default/registry.xml
+#: ../profiles/default/registry.xml
 msgid "contact_cotisation"
 msgstr ""
 
 #. Default: "Envoi d'e-mails"
-#: ric/core/mail/templates/send_mail.pt:4
+#: ../mail/templates/send_mail.pt:4
 msgid "envoi_emails"
 msgstr ""
 
 #. Default: "Formation"
-#: ric/core/profiles/default/registry.xml
+#: ../profiles/default/registry.xml
 msgid "formation"
 msgstr ""
 
 #. Default: "Modifier la template"
-#: ric/core/mail/templates/send_mail.pt:23
+#: ../mail/templates/send_mail.pt:23
 msgid "modifier_la_template"
 msgstr ""
 
-#. Default: "Non-cotisants une année spécifiée"
-#: ric/core/mail/templates/send_mail.pt:17
+#. Default: "Non-cotisants une annee specifiee"
+#: ../mail/templates/send_mail.pt:17
 msgid "non_cotisants_annee_specifiee"
 msgstr ""
 
+#: ../configure.zcml:38
+msgid "ric.core"
+msgstr ""

@@ -18,4 +18,3 @@ msgstr ""
 #: ../behaviors.py:258
 msgid "Region"
 msgstr "Province"
-

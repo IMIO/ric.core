@@ -8,8 +8,8 @@ from ric.core import RICMessageFactory as _
 
 class IRICSearch(Interface):
 
-    contentType = Choice(title=_(u"Rechercher"),
+    contentType = Choice(title=_(u"Search"),
                          vocabulary="ric.search.contents")
 
-    contentName = TextLine(title=_(u"Nom à rechercher"),
+    contentName = TextLine(title=_(u"String to search"),
                            required=True)

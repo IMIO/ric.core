@@ -5,13 +5,13 @@
      <tal:bcl tal:repeat="organization view/organizations">
         <div>
              <span i18n:translate=""
-                   tal:condition="view/isManager">Cette organisation ne comprend aucun contact de cotisation.</span>
+                   tal:condition="view/isManager">This organization doesn't contain a subscription contact.</span>
              <span i18n:translate=""
-                   tal:condition="not: view/isManager">Votre organisation (<span i18n:name="title" tal:replace="organization/Title" />) ne comprend aucun contact de cotisation.</span>
+                   tal:condition="not: view/isManager">Your organization (<span i18n:name="title" tal:replace="organization/Title" />) doesn't contain a subscription contact.</span>
              <a href=""
                 class="organization-link"
                 tal:attributes="href organization/absolute_url"
-                i18n:translate="">Cliquez ici pour en ajouter un.</a>
+                i18n:translate="">Click here to view</a>
         </div>
      </tal:bcl>
 

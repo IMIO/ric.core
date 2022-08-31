@@ -28,7 +28,7 @@ class SendMail(grok.View):
             return
 
         recipients = self.send_mail(filter)
-        message = _(u"E-mail envoyé à")
+        message = _(u"Email sent to")
         message = '%s: %s' % (message, ', '.join(recipients))
         show_message(message, self.request, type='info')
 
@@ -67,7 +67,7 @@ class SendMail(grok.View):
         try:
             notify(event)
         except:
-            raise(Exception(_(u"Un problème est survenu lors de l'envoi de l'e-mail")))
+            raise(Exception(_(u"A problem occured when sending the email")))
 
     def get_non_contributor_organizations_members(self, year):
         """
