@@ -108,6 +108,14 @@
       layer="..interfaces.IRICCoreLayer"
       />
 
+  <!-- Documentgenerator -->
+
+  <browser:page
+      for="collective.contact.core.content.directory.IDirectory"
+      name="document_generation_helper_view"
+      class="ric.core.browser.documentgenerator.DocumentGenerationDirectoryHelper"
+      permission="zope2.View"
+      />
 
   <!-- CSS -->
 

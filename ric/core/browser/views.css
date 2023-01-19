@@ -5,3 +5,8 @@
 #form-widgets-IRICPerson-invalidmail {
     color: red;
 }
+
+.template-overview-controlpanel ul.configlets img, #portlet-prefs .configlets li img {
+    max-height: 16px;
+    max-width: 16px;
+}
