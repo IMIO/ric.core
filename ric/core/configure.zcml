@@ -17,14 +17,9 @@
   <include package=".mail" />
   <include package=".viewlets" />
 
-  <!-- ckeditor 4.8.2 adapters -->
+  <!-- ckeditor 4.8.2 adapters for add, edit views-->
     <adapter
-        for="Products.Ploneboard.browser.interfaces.IConversationView"
-        factory="collective.ckeditor.browser.ckeditorview.ATWidgetSettings"
-        />
-
-    <adapter
-        for="Products.Ploneboard.browser.interfaces.ICommentView"
+        for="zope.browser.interfaces.IBrowserView"
         factory="collective.ckeditor.browser.ckeditorview.ATWidgetSettings"
         />
 
