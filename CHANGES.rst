@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- When sending email to non contributors, keep organization without subscription. If no person found, take organization email if defined.
+  [sgeulette]
 - When sending email, get only persons with valid email
   [sgeulette]
 - Redefine Title for organization and person

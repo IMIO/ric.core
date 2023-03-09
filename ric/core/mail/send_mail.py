@@ -75,13 +75,22 @@ class SendMail(grok.View):
         """
         organizations = self.get_all_organizations()
         non_contributors = []
-
+        logger.warning(u"Sending email to non contributor members for the year {}".format(year))
         for organization in organizations:
-            for subscription in organization.subscriptions:
-                if subscription.get('year') == year and subscription.get('payment') is False:
-                    non_contributors.extend(self.get_organization_members(organization.id))
-
-        return non_contributors
+            members = []
+            if organization.subscriptions is None:
+                members = self.get_organization_members(organization.id)
+            else:
+                for subscription in organization.subscriptions:
+                    if subscription.get('year') == year and subscription.get('payment') is False:
+                        members = self.get_organization_members(organization.id)
+            if not members:
+                logger.warning("No members found for organization '{}'".format(organization.Title()))
+                if organization.email:
+                    members = [organization.email]
+                    logger.warn("Using organization email")
+            non_contributors.extend(members)
+        return list(set(non_contributors))
 
     def get_organization_members(self, organization):
         """
