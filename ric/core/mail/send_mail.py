@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-from plone import api
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from five import grok
+from plone import api
 from plone.api.portal import show_message
 from plone.registry.interfaces import IRegistry
-
-from five import grok
-from zope.interface import Interface
-from ric.core.mail import events
-from zope.event import notify
 from ric.core import RICMessageFactory as _
+from ric.core import logger
+from ric.core.mail import events
 from zope.component import getUtility
+from zope.event import notify
+from zope.interface import Interface
 
 
 grok.templatedir('templates')
@@ -99,7 +99,7 @@ class SendMail(grok.View):
         queryDict['path'] = {'query': '/'.join(organization.getPhysicalPath()),
                              'depth': 1}
         results = portal_catalog.searchResults(queryDict)
-        return [result.getObject().email for result in results]
+        return [result.getObject().email for result in results if not result.getObject().invalidmail]
 
     def get_non_connected_members(self, days):
         """
@@ -132,9 +132,10 @@ class SendMail(grok.View):
 
         for field in fields:
             for person in persons:
+                if person.invalidmail:
+                    continue
                 if not person.multimail or field in person.multimail:
                     persons_by_fields.append(person.email)
-
         return list(set(persons_by_fields))
 
     def get_multimail_fields(self):

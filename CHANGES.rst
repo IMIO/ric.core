@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- When sending email, get only persons with valid email
+  [sgeulette]
 - Redefine Title for organization and person
   [sgeulette]
 - Import method for organization and person
