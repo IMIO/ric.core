@@ -79,20 +79,21 @@ class SendMail(grok.View):
         for organization in organizations:
             members = []
             if organization.subscriptions is None:
-                members = self.get_organization_members(organization.id)
+                members = self.get_organization_members(organization.id, only=u'contact_cotisation')
             else:
                 for subscription in organization.subscriptions:
                     if subscription.get('year') == year and subscription.get('payment') is False:
-                        members = self.get_organization_members(organization.id)
+                        members = self.get_organization_members(organization.id, only=u'contact_cotisation')
             if not members:
                 logger.warning("No members found for organization '{}'".format(organization.Title()))
                 if organization.email:
                     members = [organization.email]
                     logger.warn("Using organization email")
             non_contributors.extend(members)
+
         return list(set(non_contributors))
 
-    def get_organization_members(self, organization):
+    def get_organization_members(self, organization, only=None):
         """
         Return all members of a specific organization
         """
@@ -108,7 +109,17 @@ class SendMail(grok.View):
         queryDict['path'] = {'query': '/'.join(organization.getPhysicalPath()),
                              'depth': 1}
         results = portal_catalog.searchResults(queryDict)
-        return [result.getObject().email for result in results if not result.getObject().invalidmail]
+        res_all = []
+        res_only = []
+        for result in results:
+            obj = result.getObject()
+            if obj.invalidmail:
+                continue
+            res_all.append(obj.email)
+            if only and only in (obj.multimail or []):
+                res_only.append(obj.email)
+
+        return res_only or res_all
 
     def get_non_connected_members(self, days):
         """
