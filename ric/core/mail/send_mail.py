@@ -84,6 +84,9 @@ class SendMail(grok.View):
                 for subscription in organization.subscriptions:
                     if subscription.get('year') == year and subscription.get('payment') is False:
                         members = self.get_organization_members(organization.id, only=u'contact_cotisation')
+                        break
+                else:
+                    members = self.get_organization_members(organization.id, only=u'contact_cotisation')
             if not members:
                 logger.warning("No members found for organization '{}'".format(organization.Title()))
                 if organization.email:

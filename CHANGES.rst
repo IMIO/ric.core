@@ -4,6 +4,8 @@ Changelog
 0.1 (unreleased)
 ----------------
 
+- Improved `get_non_contributor_organizations_members` function
+  [sgeulette]
 - When sending email to non contributors, take contact_cotisation email. If not found take all persons.
   [sgeulette]
 - When sending email to non contributors, keep organization without subscription. If no person found, take organization email if defined.
